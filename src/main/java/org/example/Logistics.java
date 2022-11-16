@@ -35,9 +35,3 @@ public class Logistics {
     }
 }
 
-//private boolean isShippingAvailable(Transport vehicle, City city, int weight, int hours) {
-//    boolean isReachable = vehicle.getPrice(city)>0;
-//    boolean isNotOverloaded = vehicle.getCapacity()>=weight;
-//    boolean canShipInTime = city.getDistanceKm()/vehicle.getSpeed()<=hours;
-//    return isReachable && isNotOverloaded && canShipInTime && !vehicle.isRepairing();
-//}
