@@ -1,16 +1,25 @@
-package org.example;
+package org.example.services;
+
+import org.example.model.City;
+import org.example.model.Transport;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Logistics {
     private Transport[] vehicles;
+    private TransportFactory transportFactory;
 
-    public Logistics(Transport... vehicles) {
+    public Logistics(TransportFactory transportFactory, Transport... vehicles) {
         this.vehicles = vehicles;
+        this.transportFactory = transportFactory;
+    }
+    @Autowired
+    public Logistics() {
     }
 
     public Transport getShipping(City city, int weight, int hours) {
-
-        Transport min = null; // подмена на getShipping
-
+        if(vehicles==null) {
+            transportFactory.getTransport(city, weight, hours);
+        } Transport min = null; // подмена на getShipping
         for(int i = 0, counter = 0; i < vehicles.length; i++) {
             if(isShippingAvailable(getVehicles(), city, weight, hours, i)) {
                 counter++;

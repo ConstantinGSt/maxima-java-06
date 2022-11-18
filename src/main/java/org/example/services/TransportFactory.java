@@ -1,11 +1,12 @@
-package org.example;
+package org.example.services;
 
+import org.example.model.*;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TransportFactory {
 
-    public static Transport getTransport(City city, int weight, int hours) {
+    public Transport getTransport(City city, int weight, int hours) {
         final String planeName = "Airbase";
         final float planeCoast = 850;
         final String shipName = "Black Sail";

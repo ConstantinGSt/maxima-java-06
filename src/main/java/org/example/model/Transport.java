@@ -1,4 +1,6 @@
-package org.example;
+package org.example.model;
+
+import org.example.config.Repairable;
 
 public abstract class Transport implements Repairable {
     private String name;
