@@ -17,9 +17,7 @@ public class Logistics {
     }
 
     public Transport getShipping(City city, int weight, int hours) {
-        if(vehicles==null) {
-            transportFactory.getTransport(city, weight, hours);
-        } Transport min = null; // подмена на getShipping
+        Transport min = null; // подмена на getShipping
         for(int i = 0, counter = 0; i < vehicles.length; i++) {
             if(isShippingAvailable(getVehicles(), city, weight, hours, i)) {
                 counter++;
@@ -29,6 +27,8 @@ public class Logistics {
                     min = vehicles[i];
                 }
             }
+        } if(min == null) {
+            min = transportFactory.getTransport(city, weight, hours);
         } return min;
     }
 
