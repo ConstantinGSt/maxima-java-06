@@ -1,11 +1,15 @@
 package org.example.services;
 
+import org.example.config.SpringConfig;
 import org.example.model.City;
 import org.example.model.Transport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Logistics {
     private Transport[] vehicles;
+    private ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
     private TransportFactory transportFactory;
 
     public Logistics(TransportFactory transportFactory, Transport... vehicles) {
@@ -28,6 +32,7 @@ public class Logistics {
                 }
             }
         } if(min == null) {
+            transportFactory = context.getBean(TransportFactory.class);
             min = transportFactory.getTransport(city, weight, hours);
         } return min;
     }

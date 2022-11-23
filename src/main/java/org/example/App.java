@@ -14,9 +14,8 @@ public class App {
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         Logistics logic = context.getBean(Logistics.class);
-        TransportFactory tf = context.getBean(TransportFactory.class);
 
         System.out.println(logic);
-        System.out.println(tf);
+
     }
 }
