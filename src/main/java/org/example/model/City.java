@@ -12,7 +12,7 @@ public class City {
         this.hasAirport = hasAirport;
         this.isOnWater = isOnWater;
         }
-    public City(String name, int distanceKm) {
+    public City(String name, int distanceKm, boolean b) {
         this.name = name;
         this.distanceKm = distanceKm;
         this.hasAirport = false;

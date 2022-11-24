@@ -1,10 +1,13 @@
 package org.example.services;
 
 import org.example.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TransportFactory {
+
+    public TransportFactory() {}
 
     public Transport getTransport(City city, int weight, int hours) {
         final String planeName = "Airbase";
